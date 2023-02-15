@@ -3,7 +3,7 @@ import Header from "@/ui/header";
 const Home = () => {
 	return (
 		<>
-			<Header></Header>
+			<Header />
 			<main></main>
 			<footer></footer>
 		</>

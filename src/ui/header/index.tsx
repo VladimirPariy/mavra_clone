@@ -3,21 +3,20 @@ import Navbar from "@/ui/header/components/nav";
 import Logo from "@/ui/header/components/logo";
 import Social from "@/ui/header/components/social";
 import Partnership from "@/ui/header/components/partnership";
-import Container from "@/ui/header/components/container";
+import HeaderBackground from "@/ui/header/components/header-background";
 
 const Header = () => {
 	return (
-		<div>
-			<Container>
+		<header className='relative'>
+			<HeaderBackground />
+			<div className='flex items-center relative text-white max-w-[1190px] m-auto pt-10 px-3'>
 				<Localization />
 				<Navbar />
-			</Container>
-			<Logo />
-			<Container>
-				<Social />
+				<Logo />
 				<Partnership />
-			</Container>
-		</div>
+				<Social />
+			</div>
+		</header>
 	);
 };
 
