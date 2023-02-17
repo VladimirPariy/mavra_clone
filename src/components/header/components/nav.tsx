@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navList } from "@/ui/header/data/nav-list";
+import { navList } from "@/components/header/data/nav-list";
 
 const Navbar = () => {
 	return (
