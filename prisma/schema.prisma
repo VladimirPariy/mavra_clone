@@ -1,0 +1,66 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Goods {
+  id             Int            @id @default(autoincrement())
+  title          String         @unique
+  composition    String?
+  categories     Category[]
+  size           Size[]
+  price          Price[]
+  weight         Weight[]
+  additivesTypes AdditiveType[]
+  image          String?
+}
+
+model Category {
+  id         Int     @id @default(autoincrement())
+  production Goods[]
+  category   String  @unique
+}
+
+model Size {
+  id      Int      @id @default(autoincrement())
+  goods   Goods[]
+  price   Price[]
+  weights Weight[]
+  size    Int      @unique
+}
+
+model Price {
+  id      Int   @id @default(autoincrement())
+  goods   Goods @relation(fields: [goodsId], references: [id])
+  goodsId Int
+  size    Size? @relation(fields: [sizeId], references: [id])
+  sizeId  Int?
+  price   Int
+}
+
+model Weight {
+  id      Int   @id @default(autoincrement())
+  goods   Goods @relation(fields: [goodsId], references: [id])
+  goodsId Int
+  size    Size? @relation(fields: [sizeId], references: [id])
+  sizeId  Int?
+  weight  Int
+}
+
+model AdditiveType {
+  id       Int        @id @default(autoincrement())
+  goods    Goods[]
+  additive Additive[]
+  title    String     @unique
+}
+
+model Additive {
+  id           Int          @id @default(autoincrement())
+  additiveType AdditiveType @relation(fields: [id], references: [id])
+  title        String       @unique
+  price        Int
+}
