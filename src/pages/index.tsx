@@ -11,6 +11,8 @@ export interface Props {
 }
 
 const Home: FC<Props> = (props) => {
+	console.log(props);
+
 	return (
 		<>
 			<Head>
@@ -19,7 +21,7 @@ const Home: FC<Props> = (props) => {
 			<Header />
 			<main className='max-w-[1170px] m-auto'>
 				<WelcomeSpeech />
-				<AssortmentOfGoods goods={props.goods} />
+				<AssortmentOfGoods />
 			</main>
 			<footer></footer>
 		</>
@@ -28,16 +30,16 @@ const Home: FC<Props> = (props) => {
 
 export async function getServerSideProps() {
 	const goods = await prisma.goods.findMany({
-		include: {
-			categories: true,
-			price: true,
-			weight: true,
-			additivesTypes: {
-				include: {
-					additive: true,
-				},
+		take: 3,
+		where: {
+			categories: {
+				some: { category: "Пицца" },
 			},
-			size: true,
+		},
+		select: {
+			id: true,
+			title: true,
+			image: true,
 		},
 	});
 

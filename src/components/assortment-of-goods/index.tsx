@@ -1,8 +1,6 @@
 import { Goods } from "@prisma/client";
 
-const AssortmentOfGoods = ({ goods }: { goods: Goods[] }) => {
-	console.log(goods);
-
+const AssortmentOfGoods = () => {
 	return <div>goods</div>;
 };
 
