@@ -59,8 +59,9 @@ model AdditiveType {
 }
 
 model Additive {
-  id           Int          @id @default(autoincrement())
-  additiveType AdditiveType @relation(fields: [id], references: [id])
-  title        String       @unique
-  price        Int
+  id             Int          @id @default(autoincrement())
+  additiveType   AdditiveType @relation(fields: [additiveTypeId], references: [id])
+  additiveTypeId Int
+  title          String       @unique
+  price          Int
 }

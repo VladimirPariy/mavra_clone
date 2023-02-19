@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier -w .",
-    "seed:teas": "CLI_START=true ts-node prisma/seeds/tea.ts"
+    "seed:teas": "CLI_START=true ts-node prisma/seeds/teas.ts",
+    "seed:pizza": "CLI_START=true ts-node prisma/seeds/pizzas.ts"
   },
   "dependencies": {
     "@next/font": "^13.1.6",
