@@ -1,7 +1,7 @@
-import { Goods } from "@prisma/client";
+import { Goods } from '@prisma/client'
 
 const AssortmentOfGoods = () => {
-	return <div>goods</div>;
-};
+  return <div>goods</div>
+}
 
-export default AssortmentOfGoods;
+export default AssortmentOfGoods

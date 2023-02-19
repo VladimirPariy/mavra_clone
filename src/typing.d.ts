@@ -1,5 +1,5 @@
-declare module "*.module.scss";
-declare module "*.svg";
-declare module "*.jpg";
-declare module "*.png";
-declare module "*.woff2";
+declare module '*.module.scss'
+declare module '*.svg'
+declare module '*.jpg'
+declare module '*.png'
+declare module '*.woff2'

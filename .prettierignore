@@ -1,0 +1,9 @@
+**/build/**
+**/db/**
+**/dist/**
+**/public/**
+**/test/api/csv**
+**/test/e2e/booking/csv**
+.prettierignore
+**/.next/**
+**/.idea/**
