@@ -65,3 +65,16 @@ model Additive {
   title          String       @unique
   price          Int
 }
+
+model PointsOfSales {
+  id            Int     @id @default(autoincrement())
+  city          String
+  street        String?
+  googleLink    String?
+  image         String?
+  shopPhone     String?
+  deliveryPhone String?
+  greeting      String?
+  workingDay    String?
+  workingTime   String?
+}
