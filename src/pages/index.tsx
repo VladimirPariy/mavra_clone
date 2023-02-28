@@ -4,13 +4,15 @@ import WelcomeSpeech from '@/components/welcome-speech'
 import Head from 'next/head'
 import { FC } from 'react'
 import prisma from '@/backend/prisma'
-import { ShotPizzaInfo } from '@/lib/types/pizza'
+import Locations from '@/components/locations'
+import { Goods, PointsOfSales } from '@prisma/client'
 
 export interface Props {
-  goods: ShotPizzaInfo[]
+  goods: Omit<Goods, 'composition'>[]
+  pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
 }
 
-const Home: FC<Props> = ({ goods }) => {
+const Home: FC<Props> = ({ goods, pointsOfSales }) => {
   return (
     <>
       <Head>
@@ -20,6 +22,7 @@ const Home: FC<Props> = ({ goods }) => {
       <main>
         <WelcomeSpeech />
         <AssortmentOfGoods goods={goods} />
+        <Locations pointsOfSales={pointsOfSales} />
       </main>
       <footer></footer>
     </>
@@ -41,8 +44,19 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
     },
   })
 
+  const pointsOfSales = await prisma.pointsOfSales.findMany({
+    take: 4,
+    select: {
+      city: true,
+      street: true,
+      googleLink: true,
+      image: true,
+      id: true,
+    },
+  })
+
   return {
-    props: { goods },
+    props: { goods, pointsOfSales },
   }
 }
 

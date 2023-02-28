@@ -1,7 +1,7 @@
 **/build/**
 **/db/**
 **/dist/**
-**/public/**
+# **/public/**
 **/test/api/csv**
 **/test/e2e/booking/csv**
 .prettierignore

@@ -1,4 +1,3 @@
-import { ShotPizzaInfo } from '@/lib/types/pizza'
 import { FC } from 'react'
 import pizza from 'public/image/home/partn-2-1024x683.jpg'
 import wood from 'public/image/home/bg-wood.jpg'
@@ -6,9 +5,10 @@ import grass from 'public/image/home/moss-panel.jpg'
 import arrow from 'public/image/home/btn-arrow.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Goods } from '@prisma/client'
 
 interface Props {
-  goods: ShotPizzaInfo[]
+  goods: Omit<Goods, 'composition'>[]
 }
 
 const AssortmentOfGoods: FC<Props> = ({ goods }) => {

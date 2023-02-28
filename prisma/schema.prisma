@@ -69,9 +69,9 @@ model Additive {
 model PointsOfSales {
   id            Int     @id @default(autoincrement())
   city          String
-  street        String?
-  googleLink    String?
-  image         String?
+  street        String
+  googleLink    String
+  image         String
   shopPhone     String?
   deliveryPhone String?
   greeting      String?
