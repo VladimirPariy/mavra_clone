@@ -1,10 +1,10 @@
-import AssortmentOfGoods from '@/components/assortment-of-goods'
-import Header from '@/components/header'
+import AssortmentOfGoods from '@/components/main/assortment-of-goods'
+import Header from '@/components/main/header'
 import WelcomeSpeech from '@/components/welcome-speech'
 import Head from 'next/head'
 import { FC } from 'react'
 import prisma from '@/backend/prisma'
-import Locations from '@/components/locations'
+import Locations from '@/components/main/locations'
 import { Goods, PointsOfSales } from '@prisma/client'
 
 export interface Props {

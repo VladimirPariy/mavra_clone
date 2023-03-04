@@ -4,7 +4,7 @@ import Image from 'next/image'
 import heart from 'public/image/home/hr-heart.png'
 import CustomTitle from '@/components/ui/custom-title'
 import PointOfSale from '@/components/point-of-sale'
-import CustomLink from '../ui/custom-link'
+import CustomLink from '@/components/ui/custom-link'
 
 interface Props {
   pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
