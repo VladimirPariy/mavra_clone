@@ -15,11 +15,7 @@ const AssortmentOfGoods: FC<Props> = ({ goods }) => {
   return (
     <div className='relative h-[641px] overflow-hidden text-white'>
       <Image alt='' src={wood} className='w-screen h-full absolute left-0 -z-20 object-cover' />
-      <Image
-        alt=''
-        src={grass}
-        className='w-screen absolute top-[45%] -translate-y-2/4 -z-10 object-cover'
-      />
+      <Image alt='' src={grass} className='w-screen absolute top-[45%] -translate-y-2/4 -z-10 object-cover' />
       <div className='flex flex-col w-full h-full items-center'>
         <h2 className='mt-[55px] mb-3 text-4xl font-bold'>Ассортимент пиццерии</h2>
         <div className='flex flex-auto my-11 gap-16'>

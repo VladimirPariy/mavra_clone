@@ -1,13 +1,4 @@
-import {
-  PrismaClient,
-  Goods,
-  Category,
-  Price,
-  Weight,
-  Size,
-  AdditiveType,
-  Additive,
-} from '@prisma/client'
+import { PrismaClient, Goods, Category, Price, Weight, Size, AdditiveType, Additive } from '@prisma/client'
 const prisma = new PrismaClient()
 
 const pizza: Goods[] = [
@@ -15,8 +6,7 @@ const pizza: Goods[] = [
     id: 6,
     title: '“Маріана”',
     image: '/static/pizzas/Maryana_Montazhnaya-oblast-1.png',
-    composition:
-      'Сир моцарелла, вершки, трави італійські, мідії, томати в’ялені, сир Дор Блю, петрушка',
+    composition: 'Сир моцарелла, вершки, трави італійські, мідії, томати в’ялені, сир Дор Блю, петрушка',
   },
   {
     id: 7,
@@ -54,8 +44,7 @@ const pizza: Goods[] = [
     id: 12,
     title: 'Овочева Фея',
     image: '/static/pizzas/Ovoshhnaya-feya-scaled-e1643968590731.jpg',
-    composition:
-      'Соус Песто, моцарелла, гриби печерицi, кукурудза, перец болгарский, салат айсберг, помiдори черри',
+    composition: 'Соус Песто, моцарелла, гриби печерицi, кукурудза, перец болгарский, салат айсберг, помiдори черри',
   },
   {
     id: 13,
@@ -67,15 +56,13 @@ const pizza: Goods[] = [
     id: 14,
     title: 'Піґінезі',
     image: '/static/pizzas/piginezi.png',
-    composition:
-      'Соус сирний, моцарелла, свинина, бекон копчений, гриби шампіньйони, помідори, цибуля маринована',
+    composition: 'Соус сирний, моцарелла, свинина, бекон копчений, гриби шампіньйони, помідори, цибуля маринована',
   },
   {
     id: 15,
     title: 'Mavra Карбонара',
     image: '/static/pizzas/karbonara--e1605026649950.png',
-    composition:
-      'Томатный соус Пелати, моцарелла, бекон, лук маринованный, яйцо перепелиные, петрушка',
+    composition: 'Томатный соус Пелати, моцарелла, бекон, лук маринованный, яйцо перепелиные, петрушка',
   },
   {
     id: 16,
@@ -102,22 +89,19 @@ const pizza: Goods[] = [
     id: 19,
     title: 'Mavra Пикник',
     image: '/static/pizzas/Pyknyk-scaled-e1643968726385.jpg',
-    composition:
-      'Сирний соус, моцарела, бекон, баварські ковбаски, помідори черрі, цибуля маринована, петрушка',
+    composition: 'Сирний соус, моцарела, бекон, баварські ковбаски, помідори черрі, цибуля маринована, петрушка',
   },
   {
     id: 20,
     title: 'Mavra Жульен',
     image: '/static/pizzas/ZHulen-scaled-e1643967870589.jpg',
-    composition:
-      'Сырный соус, моцарелла, куриное филе, грибы шампиньоны, карамелизированый лук, петрушка',
+    composition: 'Сырный соус, моцарелла, куриное филе, грибы шампиньоны, карамелизированый лук, петрушка',
   },
   {
     id: 21,
     title: 'Цитрусова насолода',
     image: '/static/pizzas/tsytrus-e1605795540416.png',
-    composition:
-      'Моцарелла, творожный соус, ананас, апельсин, соус шоколадный, шоколадные дропсы, мята',
+    composition: 'Моцарелла, творожный соус, ананас, апельсин, соус шоколадный, шоколадные дропсы, мята',
   },
   {
     id: 22,

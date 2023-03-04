@@ -1,5 +1,4 @@
 import CustomLink from '@/components/ui/custom-link'
-import Link from 'next/link'
 
 const Partnership = () => {
   return (

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { socialLink } from '@/components/header/data/social-links'
+import { socialLink } from '@/components/main/header/data/social-links'
 
 const Social = () => {
   return (
