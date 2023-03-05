@@ -2,11 +2,12 @@ import { FC } from 'react'
 import { Goods, PointsOfSales } from '@prisma/client'
 import Head from 'next/head'
 import prisma from '@/backend/prisma'
-import Header from '@/components/main/header'
-import WelcomeSpeech from '@/components/main/welcome-speech'
-import AssortmentOfGoods from '@/components/main/assortment-of-goods'
-import Locations from '@/components/main/locations'
-import JoinTeam from '@/components/main/joining-team'
+import Header from '@/components/home/header'
+import WelcomeSpeech from '@/components/home/welcome-speech'
+import AssortmentOfGoods from '@/components/home/assortment-of-goods'
+import Locations from '@/components/home/locations'
+import JoinTeam from '@/components/home/joining-team'
+import FeedbackForm from '@/components/home/feedback-form'
 
 export interface Props {
   goods: Omit<Goods, 'composition'>[]
@@ -25,6 +26,7 @@ const Home: FC<Props> = ({ goods, pointsOfSales }) => {
         <AssortmentOfGoods goods={goods} />
         <Locations pointsOfSales={pointsOfSales} />
         <JoinTeam />
+        <FeedbackForm />
       </main>
       <footer></footer>
     </>

@@ -3,7 +3,7 @@ import pizza from 'public/image/home/partn-2-1024x683.jpg'
 import heart from 'public/image/home/hr-heart.png'
 import CustomLink from '@/components/ui/custom-link'
 import CustomTitle from '@/components/ui/custom-title'
-import CustomStartingIcon from '@/components/ui/custom-starting-icon'
+import CustomStartingIcon from '@/components/ui/starting-icon'
 
 const WelcomeSpeech = () => {
   return (

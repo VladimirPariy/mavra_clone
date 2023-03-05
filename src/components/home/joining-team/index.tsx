@@ -1,14 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
+import { v4 as uuid } from 'uuid'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import icon from 'public/image/home/hr-leaf.png'
 import team from 'public/image/home/team-photo-1.jpg'
 import CustomTitle from '@/components/ui/custom-title'
-import CustomStartingIcon from '@/components/ui/custom-starting-icon'
-import { v4 as uuid } from 'uuid'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { joinTeamSchema } from '@/lib/form-validation/join-team-validation'
+import CustomStartingIcon from '@/components/ui/starting-icon'
+import Button from '@/components/ui/button'
 import InputForm from '@/components/ui/input-form'
+import { joinTeamSchema } from '@/lib/form-validation/join-team-validation'
 
 interface IForm {
   Name: string
@@ -22,10 +23,11 @@ interface IWaitingForYou {
   title: string
 }
 
-interface IInputs {
+export type FieldsName = 'Name' | 'Phone' | 'Mail' | 'Message'
+export interface IInputs {
   id: string
   label: string
-  fieldName: 'Name' | 'Phone' | 'Mail' | 'Message'
+  fieldName: FieldsName
   form?: 'input' | 'textArea'
 }
 
@@ -68,11 +70,11 @@ const JoinTeam = () => {
   }
 
   return (
-    <div className='bg-gray-50'>
-      <div className='flex flex-col max-w-[975px] m-auto pb-10'>
+    <div className='bg-gray-50 pt-9'>
+      <div className='flex flex-col max-w-[975px] m-auto pb-20 '>
         <CustomStartingIcon icon={icon} />
-        <CustomTitle>Присоединяйся к нашей команде волшебников</CustomTitle>
-        <div className='flex gap-16 mt-10 text-sm text-neutral-800'>
+        <CustomTitle>Присоединяйся к нашей команде волшебников!</CustomTitle>
+        <div className='flex gap-16 mt-10 text-sm text-neutral-800 flex-wrap'>
           <div className='flex flex-col flex-1 gap-2.5'>
             <p>
               <span className='pr-1 font-semibold uppercase'>MAVRA PIZZA</span>– это стабильная и очень хорошая работа
@@ -90,7 +92,7 @@ const JoinTeam = () => {
           <Image alt='' src={team} className='w-80 h-80 rounded-full' />
           <form className='flex flex-col flex-1 gap-2.5' onSubmit={handleSubmit(onSubmitForm)}>
             <p>
-              <span className='font-semibold mr-1 block'>Ты с нами?</span>Тогда, заполни эту форму заявки:
+              <span className='font-semibold pr-1 block'>Ты с нами?</span>Тогда, заполни эту форму заявки:
             </p>
             <div className='flex flex-col gap-7 mt-1'>
               {inputs.map((item) => (
@@ -104,9 +106,7 @@ const JoinTeam = () => {
                 />
               ))}
             </div>
-            <button className='py-3 px-7 bg-green-600 rounded-3xl text-xs text-white font-medium uppercase hover:bg-lime-500 transition-all duration-500 leading-none'>
-              Отправить
-            </button>
+            <Button>Отправить</Button>
           </form>
         </div>
       </div>

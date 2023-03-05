@@ -8,10 +8,21 @@ interface Props {
   registration: UseFormRegisterReturn<string>
   inputForm?: 'input' | 'textArea'
   value?: string
+  className?: string
+  textAreaLength?: number
 }
 
 const InputForm: FC<Props> = (props) => {
-  const { errors, labelText, registration, inputType = 'text', inputForm = 'input', value } = props
+  const {
+    errors,
+    labelText,
+    registration,
+    inputType = 'text',
+    inputForm = 'input',
+    value,
+    className,
+    textAreaLength = 62,
+  } = props
 
   const [isHover, setIsHover] = useState<boolean>(false)
   const [isLabelOpacity, setIsLabelOpacity] = useState<boolean>(true)
@@ -28,7 +39,7 @@ const InputForm: FC<Props> = (props) => {
   }, [value])
 
   return (
-    <div className='relative'>
+    <div className={`relative ${className ? className : ''}`}>
       <label
         className={`${
           !isHover
@@ -46,7 +57,7 @@ const InputForm: FC<Props> = (props) => {
           {...registration}
           className={`bg-transparent border-b-[1px] border-gray-300 focus:border-b-[1px] focus:border-gray-400 outline-0 relative z-10 transition-all duration-500 px-2 w-full ${
             errors ? 'border-red-300 focus:border-red-500' : ''
-          }`}
+          } `}
           onBlur={blurHandler}
           onFocus={focusHandler}
         />
@@ -58,7 +69,7 @@ const InputForm: FC<Props> = (props) => {
           }`}
           onBlur={blurHandler}
           onFocus={focusHandler}
-          maxLength={62}
+          maxLength={textAreaLength}
         />
       )}
       <div
