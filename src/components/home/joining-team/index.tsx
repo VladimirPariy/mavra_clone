@@ -77,8 +77,9 @@ const JoinTeam = () => {
         <div className='flex gap-16 mt-10 text-sm text-neutral-800 flex-wrap'>
           <div className='flex flex-col flex-1 gap-2.5'>
             <p>
-              <span className='pr-1 font-semibold uppercase'>MAVRA PIZZA</span>– это стабильная и очень хорошая работа
-              для поваров. Обучаем всему и развиваем твое мастерство.
+              <span className='pr-1 font-semibold uppercase'>MAVRA PIZZA</span>–
+              это стабильная и очень хорошая работа для поваров. Обучаем всему и
+              развиваем твое мастерство.
             </p>
             <p>Тебя ждет:</p>
             <ul>
@@ -90,9 +91,13 @@ const JoinTeam = () => {
             </ul>
           </div>
           <Image alt='' src={team} className='w-80 h-80 rounded-full' />
-          <form className='flex flex-col flex-1 gap-2.5' onSubmit={handleSubmit(onSubmitForm)}>
+          <form
+            className='flex flex-col flex-1 gap-2.5'
+            onSubmit={handleSubmit(onSubmitForm)}
+          >
             <p>
-              <span className='font-semibold pr-1 block'>Ты с нами?</span>Тогда, заполни эту форму заявки:
+              <span className='font-semibold pr-1 block'>Ты с нами?</span>Тогда,
+              заполни эту форму заявки:
             </p>
             <div className='flex flex-col gap-7 mt-1'>
               {inputs.map((item) => (

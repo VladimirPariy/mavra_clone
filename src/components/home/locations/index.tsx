@@ -7,7 +7,10 @@ import CustomLink from '@/components/ui/custom-link'
 import CustomStartingIcon from '@/components/ui/starting-icon'
 
 interface Props {
-  pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
+  pointsOfSales: Pick<
+    PointsOfSales,
+    'id' | 'image' | 'city' | 'street' | 'googleLink'
+  >[]
 }
 
 const Locations: FC<Props> = ({ pointsOfSales }) => {

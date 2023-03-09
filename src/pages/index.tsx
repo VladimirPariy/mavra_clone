@@ -8,7 +8,10 @@ import Main from '@/components/home'
 
 interface Props {
   goods: Omit<Goods, 'composition'>[]
-  pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
+  pointsOfSales: Pick<
+    PointsOfSales,
+    'id' | 'image' | 'city' | 'street' | 'googleLink'
+  >[]
 }
 
 const Home: FC<Props> = ({ goods, pointsOfSales }) => {

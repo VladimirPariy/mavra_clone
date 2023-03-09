@@ -54,9 +54,13 @@ const teasPrice: Price[] = [
 
 const seedTea = async () => {
   const teaPromises = teas.map(({ title, id, composition, image }) => {
-    const currentWeight: Weight | undefined = teasWeight.find((el) => el.goodsId === id)
+    const currentWeight: Weight | undefined = teasWeight.find(
+      (el) => el.goodsId === id
+    )
 
-    const currentPrice: Price | undefined = teasPrice.find((el) => el.goodsId === id)
+    const currentPrice: Price | undefined = teasPrice.find(
+      (el) => el.goodsId === id
+    )
 
     if (currentWeight && currentPrice) {
       return prisma.goods.upsert({

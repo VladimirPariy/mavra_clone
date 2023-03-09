@@ -63,7 +63,10 @@ const FeedbackForm = () => {
         <p>Если у вас есть вопросы или предложения,</p>
         <p>напишите нам!</p>
       </div>
-      <form onSubmit={handleSubmit(onSubmitForm)} className='grid gap-7 grid-cols-2 mt-9'>
+      <form
+        onSubmit={handleSubmit(onSubmitForm)}
+        className='grid gap-7 grid-cols-2 mt-9'
+      >
         {fields.map((item) => (
           <InputForm
             errors={errors[item.fieldName]?.message}

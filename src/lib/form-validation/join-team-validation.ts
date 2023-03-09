@@ -8,6 +8,9 @@ export const joinTeamSchema = yup.object({
     .string()
     .trim()
     .required(ErrorMsg.required)
-    .matches(/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/, ErrorMsg.phone),
+    .matches(
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+      ErrorMsg.phone
+    ),
   Message: yup.string().trim(),
 })

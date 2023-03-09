@@ -15,7 +15,9 @@ const CustomLink: FC<Props> = (props) => {
     <Link
       href={href}
       className={`py-3 px-7 bg-green-600 rounded-3xl text-xs text-white font-medium uppercase hover:bg-lime-500 transition-all duration-500 
-			${withBorder ? 'border' : ''} ${color ? color : ''} ${className ? className : ''}`}
+			${withBorder ? 'border' : ''} ${color ? color : ''} ${
+        className ? className : ''
+      }`}
     >
       {text}
     </Link>

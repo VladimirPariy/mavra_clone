@@ -27,12 +27,18 @@ const InputForm: FC<Props> = (props) => {
   const [isHover, setIsHover] = useState<boolean>(false)
   const [isLabelOpacity, setIsLabelOpacity] = useState<boolean>(true)
 
-  const focusHandler = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const focusHandler = (
+    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.currentTarget === e.target && setIsHover(true)
   }
-  const blurHandler = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const blurHandler = (
+    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.currentTarget === e.target && setIsHover(false)
-    e.target.value.length === 0 ? setIsLabelOpacity(true) : setIsLabelOpacity(false)
+    e.target.value.length === 0
+      ? setIsLabelOpacity(true)
+      : setIsLabelOpacity(false)
   }
   useEffect(() => {
     value?.length === 0 && setIsLabelOpacity(true)
@@ -46,7 +52,9 @@ const InputForm: FC<Props> = (props) => {
             ? `absolute top-0 left-2 text-sm transition-all duration-500 ${
                 isLabelOpacity ? 'opacity-100' : 'opacity-0'
               } ${errors ? 'text-red-500' : ''}`
-            : `absolute -top-3 left-0 text-xs transition-all duration-500 text-gray-400 ${errors ? 'text-red-300' : ''}`
+            : `absolute -top-3 left-0 text-xs transition-all duration-500 text-gray-400 ${
+                errors ? 'text-red-300' : ''
+              }`
         }`}
       >
         {labelText}
@@ -73,7 +81,9 @@ const InputForm: FC<Props> = (props) => {
         />
       )}
       <div
-        className={`absolute text-xs text-red-500 transition-all duration-500 ${errors ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute text-xs text-red-500 transition-all duration-500 ${
+          errors ? 'opacity-100' : 'opacity-0'
+        }`}
       >
         {errors}
       </div>

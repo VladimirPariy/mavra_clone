@@ -8,7 +8,10 @@ import { Goods, PointsOfSales } from '@prisma/client'
 
 interface Props {
   goods: Omit<Goods, 'composition'>[]
-  pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
+  pointsOfSales: Pick<
+    PointsOfSales,
+    'id' | 'image' | 'city' | 'street' | 'googleLink'
+  >[]
 }
 
 const Main: FC<Props> = ({ goods, pointsOfSales }) => {

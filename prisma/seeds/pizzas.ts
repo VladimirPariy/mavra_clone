@@ -1,4 +1,13 @@
-import { PrismaClient, Goods, Category, Price, Weight, Size, AdditiveType, Additive } from '@prisma/client'
+import {
+  PrismaClient,
+  Goods,
+  Category,
+  Price,
+  Weight,
+  Size,
+  AdditiveType,
+  Additive,
+} from '@prisma/client'
 const prisma = new PrismaClient()
 
 const pizza: Goods[] = [
@@ -6,7 +15,8 @@ const pizza: Goods[] = [
     id: 6,
     title: '“Маріана”',
     image: '/static/pizzas/Maryana_Montazhnaya-oblast-1.png',
-    composition: 'Сир моцарелла, вершки, трави італійські, мідії, томати в’ялені, сир Дор Блю, петрушка',
+    composition:
+      'Сир моцарелла, вершки, трави італійські, мідії, томати в’ялені, сир Дор Блю, петрушка',
   },
   {
     id: 7,
@@ -26,13 +36,15 @@ const pizza: Goods[] = [
     id: 9,
     title: 'Турiн',
     image: '/static/pizzas/1_Montazhnaya-oblast-1.png',
-    composition: 'Соус “Пілаті”, сир моцарелла, копчений мікс, цибуля, маслини, петрушка',
+    composition:
+      'Соус “Пілаті”, сир моцарелла, копчений мікс, цибуля, маслини, петрушка',
   },
   {
     id: 10,
     title: '4 Сезони',
     image: '/static/pizzas/4-sezona_Montazhnaya-oblast-1.png',
-    composition: 'Соус “Пілаті”, сир моцарелла, помідор, гриби, салямі, шинка, корнішони, маслини',
+    composition:
+      'Соус “Пілаті”, сир моцарелла, помідор, гриби, салямі, шинка, корнішони, маслини',
   },
   {
     id: 11,
@@ -44,25 +56,29 @@ const pizza: Goods[] = [
     id: 12,
     title: 'Овочева Фея',
     image: '/static/pizzas/Ovoshhnaya-feya-scaled-e1643968590731.jpg',
-    composition: 'Соус Песто, моцарелла, гриби печерицi, кукурудза, перец болгарский, салат айсберг, помiдори черри',
+    composition:
+      'Соус Песто, моцарелла, гриби печерицi, кукурудза, перец болгарский, салат айсберг, помiдори черри',
   },
   {
     id: 13,
     title: 'Качка Теріякі',
     image: '/static/pizzas/terijaki.png',
-    composition: 'Соус Пелаті, моцарелла, качка Конфі,ананас, соус Теріякі, кунжут',
+    composition:
+      'Соус Пелаті, моцарелла, качка Конфі,ананас, соус Теріякі, кунжут',
   },
   {
     id: 14,
     title: 'Піґінезі',
     image: '/static/pizzas/piginezi.png',
-    composition: 'Соус сирний, моцарелла, свинина, бекон копчений, гриби шампіньйони, помідори, цибуля маринована',
+    composition:
+      'Соус сирний, моцарелла, свинина, бекон копчений, гриби шампіньйони, помідори, цибуля маринована',
   },
   {
     id: 15,
     title: 'Mavra Карбонара',
     image: '/static/pizzas/karbonara--e1605026649950.png',
-    composition: 'Томатный соус Пелати, моцарелла, бекон, лук маринованный, яйцо перепелиные, петрушка',
+    composition:
+      'Томатный соус Пелати, моцарелла, бекон, лук маринованный, яйцо перепелиные, петрушка',
   },
   {
     id: 16,
@@ -89,25 +105,29 @@ const pizza: Goods[] = [
     id: 19,
     title: 'Mavra Пикник',
     image: '/static/pizzas/Pyknyk-scaled-e1643968726385.jpg',
-    composition: 'Сирний соус, моцарела, бекон, баварські ковбаски, помідори черрі, цибуля маринована, петрушка',
+    composition:
+      'Сирний соус, моцарела, бекон, баварські ковбаски, помідори черрі, цибуля маринована, петрушка',
   },
   {
     id: 20,
     title: 'Mavra Жульен',
     image: '/static/pizzas/ZHulen-scaled-e1643967870589.jpg',
-    composition: 'Сырный соус, моцарелла, куриное филе, грибы шампиньоны, карамелизированый лук, петрушка',
+    composition:
+      'Сырный соус, моцарелла, куриное филе, грибы шампиньоны, карамелизированый лук, петрушка',
   },
   {
     id: 21,
     title: 'Цитрусова насолода',
     image: '/static/pizzas/tsytrus-e1605795540416.png',
-    composition: 'Моцарелла, творожный соус, ананас, апельсин, соус шоколадный, шоколадные дропсы, мята',
+    composition:
+      'Моцарелла, творожный соус, ананас, апельсин, соус шоколадный, шоколадные дропсы, мята',
   },
   {
     id: 22,
     title: 'Ягода-Малина',
     image: '/static/pizzas/malyna-1.png',
-    composition: 'Моцарелла, ягоды малины, арахис, соус творожный, мята, топпинг шоколадный',
+    composition:
+      'Моцарелла, ягоды малины, арахис, соус творожный, мята, топпинг шоколадный',
   },
   {
     id: 23,
@@ -182,13 +202,15 @@ const pizza: Goods[] = [
     id: 33,
     title: 'Сырная – заманчивая',
     image: '/static/pizzas/syrna-2.png',
-    composition: '(Піца 4 сири) Сирний соус, моцарела, сир радомер, або копчений, дорблю, пармезан',
+    composition:
+      '(Піца 4 сири) Сирний соус, моцарела, сир радомер, або копчений, дорблю, пармезан',
   },
   {
     id: 34,
     title: 'Маргарита',
     image: '/static/pizzas/margarita.png',
-    composition: 'Соус Пелаті,моцарелла,помідори черрі, зелений базилік, пармезан',
+    composition:
+      'Соус Пелаті,моцарелла,помідори черрі, зелений базилік, пармезан',
   },
   {
     id: 35,
@@ -201,7 +223,8 @@ const pizza: Goods[] = [
     id: 36,
     title: 'Сёмга и шпинат',
     image: '/static/pizzas/semga-shpynat-scaled-e1643970257384.jpg',
-    composition: 'Сырный соус, моцарелла, семга, маслины, помидоры черри, шпинат, пармезан',
+    composition:
+      'Сырный соус, моцарелла, семга, маслины, помидоры черри, шпинат, пармезан',
   },
 ]
 
@@ -398,13 +421,15 @@ const seedPizza = async () => {
     })
   })
 
-  const additivePromises = pizzaAdditive.map(({ id, price, title, additiveTypeId }) => {
-    return prisma.additive.upsert({
-      where: { id },
-      update: {},
-      create: { id, title, price, additiveTypeId },
-    })
-  })
+  const additivePromises = pizzaAdditive.map(
+    ({ id, price, title, additiveTypeId }) => {
+      return prisma.additive.upsert({
+        where: { id },
+        update: {},
+        create: { id, title, price, additiveTypeId },
+      })
+    }
+  )
 
   const categoryPromises = pizzaCategory.map(({ category, id }) => {
     return prisma.category.upsert({

@@ -22,7 +22,11 @@ const Footer = () => {
         <Image src={bgLogo} alt='' className='absolute w-80 top-[30px]' />
         <div className='flex flex-col pt-5  gap-3 max-w-[1170px] m-auto'>
           <div className='flex justify-between gap-3 flex-wrap items-center px-7'>
-            <Image src={logo} alt='' className='bg-white rounded-full h-24 w-24' />
+            <Image
+              src={logo}
+              alt=''
+              className='bg-white rounded-full h-24 w-24'
+            />
             <Navbar list={navList} className='relative z-10' />
             <a href='mailto:' className='flex gap-2'>
               <Mail className='stroke-green-600' />
@@ -33,7 +37,11 @@ const Footer = () => {
           <p className='mb-5 text-sm'>© 2020, MAVRA PIZZA</p>
         </div>
       </div>
-      <Image alt='' src={grass} className='absolute -bottom-10 z-10 w-full h-20' />
+      <Image
+        alt=''
+        src={grass}
+        className='absolute -bottom-10 z-10 w-full h-20'
+      />
     </footer>
   )
 }
