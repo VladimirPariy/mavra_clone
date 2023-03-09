@@ -70,7 +70,7 @@ const JoinTeam = () => {
   }
 
   return (
-    <div className='bg-gray-50 pt-9'>
+    <section className='bg-gray-50 pt-9'>
       <div className='flex flex-col max-w-[975px] m-auto pb-20 '>
         <CustomStartingIcon icon={icon} />
         <CustomTitle>Присоединяйся к нашей команде волшебников!</CustomTitle>
@@ -110,7 +110,7 @@ const JoinTeam = () => {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

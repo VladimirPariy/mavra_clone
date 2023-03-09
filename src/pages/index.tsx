@@ -3,13 +3,10 @@ import { Goods, PointsOfSales } from '@prisma/client'
 import Head from 'next/head'
 import prisma from '@/backend/prisma'
 import Header from '@/components/home/header'
-import WelcomeSpeech from '@/components/home/welcome-speech'
-import AssortmentOfGoods from '@/components/home/assortment-of-goods'
-import Locations from '@/components/home/locations'
-import JoinTeam from '@/components/home/joining-team'
-import FeedbackForm from '@/components/home/feedback-form'
+import Footer from '@/components/footer'
+import Main from '@/components/home'
 
-export interface Props {
+interface Props {
   goods: Omit<Goods, 'composition'>[]
   pointsOfSales: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>[]
 }
@@ -21,14 +18,8 @@ const Home: FC<Props> = ({ goods, pointsOfSales }) => {
         <title>Mavra Pizza | Замовляй i забирай!</title>
       </Head>
       <Header />
-      <main>
-        <WelcomeSpeech />
-        <AssortmentOfGoods goods={goods} />
-        <Locations pointsOfSales={pointsOfSales} />
-        <JoinTeam />
-        <FeedbackForm />
-      </main>
-      <footer></footer>
+      <Main goods={goods} pointsOfSales={pointsOfSales} />
+      <Footer />
     </>
   )
 }

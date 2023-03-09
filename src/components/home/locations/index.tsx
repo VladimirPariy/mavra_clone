@@ -12,7 +12,7 @@ interface Props {
 
 const Locations: FC<Props> = ({ pointsOfSales }) => {
   return (
-    <div className='my-20 max-w-[1170px] m-auto flex-col flex justify-center items-center'>
+    <section className='my-20 max-w-[1170px] m-auto flex-col flex justify-center items-center'>
       <CustomStartingIcon icon={heart} />
       <CustomTitle>Наши вкусные локации</CustomTitle>
       <div className='flex flex-wrap justify-center my-9'>
@@ -21,7 +21,7 @@ const Locations: FC<Props> = ({ pointsOfSales }) => {
         ))}
       </div>
       <CustomLink href={'/'} text='все локации' />
-    </div>
+    </section>
   )
 }
 

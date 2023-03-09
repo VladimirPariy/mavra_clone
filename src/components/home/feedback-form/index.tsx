@@ -56,7 +56,7 @@ const FeedbackForm = () => {
   }
 
   return (
-    <div className='max-w-[550px] m-auto pb-20 pt-9'>
+    <section className='max-w-[550px] m-auto pb-20 pt-9'>
       <CustomStartingIcon icon={yinYang} />
       <CustomTitle>Обратная связь</CustomTitle>
       <div className='text-base font-semibold text-center'>
@@ -78,7 +78,7 @@ const FeedbackForm = () => {
         ))}
         <Button className='col-span-2'>Отправить</Button>
       </form>
-    </div>
+    </section>
   )
 }
 
