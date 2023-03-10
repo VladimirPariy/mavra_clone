@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import pizza from 'public/image/home/partn-2-1024x683.jpg'
 import heart from 'public/image/home/hr-heart.png'
 import CustomLink from '@/components/ui/custom-link'
@@ -7,30 +6,10 @@ import CustomTitle from '@/components/ui/custom-title'
 import CustomStartingIcon from '@/components/ui/starting-icon'
 import { MotionImage } from '@/components/ui/motion-image'
 
-const animationNegativeXOffset = {
-  hidden: {
-    opacity: 0,
-    x: -300,
-  },
-  visible: (custom: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: custom,
-      duration: custom,
-    },
-  }),
-}
-
-const animationPositiveXOffset = {
-  hidden: {
-    opacity: 0,
-    x: 300,
-  },
-  visible: (custom: number) => ({
-    ...animationNegativeXOffset.visible(custom),
-  }),
-}
+import {
+  animationNegativeXOffset,
+  animationPositiveXOffset,
+} from '@/lib/animation'
 
 const WelcomeSpeech = () => {
   return (
@@ -64,9 +43,13 @@ const WelcomeSpeech = () => {
             <p>Просто найди меня, подожди 15 минут и получи свою коробочку</p>
             <p>с горячей пиццей 😉</p>
           </div>
-          <div className='my-6'>
-            <CustomLink href='/' text='Подробнее' withBorder={true} />
-          </div>
+          <CustomLink
+            href='/'
+            withBorder={true}
+            className='my-6 inline-flex justify-center'
+          >
+            Подробнее
+          </CustomLink>
         </motion.div>
       </div>
     </motion.section>

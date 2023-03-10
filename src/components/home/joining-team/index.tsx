@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { v4 as uuid } from 'uuid'
+import { motion } from 'framer-motion'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import icon from 'public/image/home/hr-leaf.png'
@@ -10,6 +11,12 @@ import CustomStartingIcon from '@/components/ui/starting-icon'
 import Button from '@/components/ui/button'
 import InputForm from '@/components/ui/input-form'
 import { joinTeamSchema } from '@/lib/form-validation/join-team-validation'
+import {
+  animationNegativeXOffset,
+  animationPositiveXOffset,
+  animationScale,
+} from '@/lib/animation'
+import { MotionImage } from '@/components/ui/motion-image'
 
 interface IForm {
   Name: string
@@ -70,12 +77,23 @@ const JoinTeam = () => {
   }
 
   return (
-    <section className='bg-gray-50 pt-9'>
+    <motion.section
+      className='bg-gray-50 pt-9'
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className='flex flex-col max-w-[975px] m-auto pb-20 '>
-        <CustomStartingIcon icon={icon} />
-        <CustomTitle>Присоединяйся к нашей команде волшебников!</CustomTitle>
+        <motion.div variants={animationScale} custom={1}>
+          <CustomStartingIcon icon={icon} />
+          <CustomTitle>Присоединяйся к нашей команде волшебников!</CustomTitle>
+        </motion.div>
         <div className='flex gap-16 mt-10 text-sm text-neutral-800 flex-wrap'>
-          <div className='flex flex-col flex-1 gap-2.5'>
+          <motion.div
+            className='flex flex-col flex-1 gap-2.5'
+            variants={animationNegativeXOffset}
+            custom={1}
+          >
             <p>
               <span className='pr-1 font-semibold uppercase'>MAVRA PIZZA</span>–
               это стабильная и очень хорошая работа для поваров. Обучаем всему и
@@ -89,11 +107,19 @@ const JoinTeam = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <Image alt='' src={team} className='w-80 h-80 rounded-full' />
-          <form
+          </motion.div>
+          <MotionImage
+            alt=''
+            src={team}
+            className='w-80 h-80 rounded-full'
+            variants={animationScale}
+            custom={1}
+          />
+          <motion.form
             className='flex flex-col flex-1 gap-2.5'
             onSubmit={handleSubmit(onSubmitForm)}
+            variants={animationPositiveXOffset}
+            custom={1}
           >
             <p>
               <span className='font-semibold pr-1 block'>Ты с нами?</span>Тогда,
@@ -112,10 +138,10 @@ const JoinTeam = () => {
               ))}
             </div>
             <Button>Отправить</Button>
-          </form>
+          </motion.form>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

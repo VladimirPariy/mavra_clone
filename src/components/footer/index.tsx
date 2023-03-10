@@ -3,8 +3,8 @@ import grass from 'public/image/home/moss-panel.jpg'
 import bgLogo from 'public/image/home/footer-bg.png'
 import logo from 'public/image/home/logo.png'
 import Mail from 'public/image/home/mail'
-import Navbar from '../ui/nav'
-import Social from '../ui/social'
+import Navbar from '@/components/ui/nav'
+import Social from '@/components/ui/social'
 
 export const navList = [
   { id: 1, title: 'главная', href: '/' },

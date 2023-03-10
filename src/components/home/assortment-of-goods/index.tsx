@@ -7,6 +7,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Goods } from '@prisma/client'
 import { motion } from 'framer-motion'
+import CustomLink from '@/components/ui/custom-link'
+import {
+  animationNegativeXOffset,
+  animationPositiveXOffset,
+} from '@/lib/animation'
 
 interface Props {
   goods: Omit<Goods, 'composition'>[]
@@ -18,30 +23,6 @@ interface PizzaProps {
 }
 
 type PizzaRefProps = Ref<HTMLDivElement>
-
-const animationNegativeXOffset = {
-  hidden: {
-    opacity: 0,
-    x: -300,
-  },
-  visible: (custom: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: custom * 0.5,
-      duration: 0.5,
-    },
-  }),
-}
-const animationPositiveXOffset = {
-  hidden: {
-    opacity: 0,
-    x: 300,
-  },
-  visible: (custom: number) => ({
-    ...animationNegativeXOffset.visible(custom),
-  }),
-}
 
 const AssortmentOfGoods: FC<Props> = ({ goods }) => {
   return (
@@ -80,13 +61,10 @@ const AssortmentOfGoods: FC<Props> = ({ goods }) => {
           ))}
         </div>
         <motion.div variants={animationNegativeXOffset} custom='0.5'>
-          <Link
-            href={'/'}
-            className='mb-[35px] flex  py-3 px-7 bg-green-600 rounded-3xl text-sm text-white font-medium uppercase hover:bg-lime-500 transition-all duration-500 gap-2'
-          >
+          <CustomLink href={'/'} className='mb-[35px] flex !text-sm gap-2'>
             Смотреть все
             <Image alt='' src={arrow} className='h-[14px]' />
-          </Link>
+          </CustomLink>
         </motion.div>
       </div>
     </motion.section>

@@ -8,6 +8,8 @@ import { v4 as uuid } from 'uuid'
 import { IInputs, FieldsName } from '@/components/home/joining-team'
 import { feedbackSchema } from '@/lib/form-validation/feedback-validation'
 import Button from '@/components/ui/button'
+import { motion } from 'framer-motion'
+import { animationPositiveYOffset, animationScale } from '@/lib/animation'
 
 interface IForm {
   Name: string
@@ -56,16 +58,25 @@ const FeedbackForm = () => {
   }
 
   return (
-    <section className='max-w-[550px] m-auto pb-20 pt-9'>
-      <CustomStartingIcon icon={yinYang} />
-      <CustomTitle>Обратная связь</CustomTitle>
-      <div className='text-base font-semibold text-center'>
-        <p>Если у вас есть вопросы или предложения,</p>
-        <p>напишите нам!</p>
-      </div>
-      <form
+    <motion.section
+      className='max-w-[550px] m-auto pb-20 pt-9 overflow-hidden'
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <motion.div variants={animationScale} custom={1}>
+        <CustomStartingIcon icon={yinYang} />
+        <CustomTitle>Обратная связь</CustomTitle>
+        <div className='text-base font-semibold text-center'>
+          <p>Если у вас есть вопросы или предложения,</p>
+          <p>напишите нам!</p>
+        </div>
+      </motion.div>
+      <motion.form
         onSubmit={handleSubmit(onSubmitForm)}
         className='grid gap-7 grid-cols-2 mt-9'
+        variants={animationPositiveYOffset}
+        custom={1}
       >
         {fields.map((item) => (
           <InputForm
@@ -80,8 +91,8 @@ const FeedbackForm = () => {
           />
         ))}
         <Button className='col-span-2'>Отправить</Button>
-      </form>
-    </section>
+      </motion.form>
+    </motion.section>
   )
 }
 

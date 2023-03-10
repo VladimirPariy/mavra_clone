@@ -1,16 +1,19 @@
 import Map from 'public/image/home/map'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FC } from 'react'
+import { forwardRef, Ref } from 'react'
 import { PointsOfSales } from '@prisma/client'
+import { motion } from 'framer-motion'
 
 interface IProps {
   item: Pick<PointsOfSales, 'id' | 'image' | 'city' | 'street' | 'googleLink'>
 }
 
-const PointOfSale: FC<IProps> = ({ item }) => {
+type RefProps = Ref<HTMLDivElement>
+
+const PointOfSale = forwardRef(({ item }: IProps, ref: RefProps) => {
   return (
-    <div className='w-72 flex flex-col items-center px-4'>
+    <div className='w-72 flex flex-col items-center px-4' ref={ref}>
       <Image
         alt='location'
         src={item.image}
@@ -41,6 +44,9 @@ const PointOfSale: FC<IProps> = ({ item }) => {
       </Link>
     </div>
   )
-}
+})
+PointOfSale.displayName = 'PointOfSale'
+
+export const MotionPointOfSale = motion(PointOfSale)
 
 export default PointOfSale
