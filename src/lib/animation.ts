@@ -54,10 +54,30 @@ const animationPositiveYOffset = {
   }),
 }
 
+const animationScaleAndNegYOffset = {
+  hidden: {
+    opacity: 0,
+    y: -100,
+    scale: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+}
+
 export {
   animationOpacity,
   animationScale,
   animationNegativeXOffset,
   animationPositiveXOffset,
   animationPositiveYOffset,
+  animationScaleAndNegYOffset,
 }

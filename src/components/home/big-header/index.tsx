@@ -17,6 +17,7 @@ import {
   animationPositiveXOffset,
   animationPositiveYOffset,
 } from '@/lib/animation'
+import { Dispatch, FC, SetStateAction, useEffect, useRef } from 'react'
 
 const navList = [
   { id: 1, title: 'главная', href: '/' },
@@ -26,18 +27,42 @@ const navList = [
   { id: 5, title: 'контакты', href: '/' },
 ]
 
-const Header = () => {
+interface Props {
+  setHeight: Dispatch<SetStateAction<number>>
+  setVisible: Dispatch<SetStateAction<boolean>>
+}
+
+const BigHeader: FC<Props> = ({ setHeight, setVisible }) => {
+  const ref = useRef<HTMLElement | null>(null)
+
+  const resizeHandler = () => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const { height } = entries[0].contentRect
+      setHeight(height)
+      window.scrollY >= height ? setVisible(true) : setVisible(false)
+    })
+    if (ref.current) resizeObserver.observe(ref.current)
+  }
+
+  useEffect(() => {
+    if (ref && window) {
+      resizeHandler()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <motion.header
-      className='relative h-[90vh]'
+    <motion.section
+      className='relative h-[90vh] min-h-[680px] section_main '
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true, amount: 0.3 }}
+      ref={ref}
     >
       <Image
         src={headerBackground}
         alt='bg'
-        className='w-screen h-[90vh] absolute top-0 -z-10 object-cover'
+        className='w-screen h-full absolute top-0 -z-10 object-cover'
       />
       <div className='flex items-center relative text-white max-w-[1190px] m-auto pt-10 px-3'>
         <motion.div
@@ -79,7 +104,7 @@ const Header = () => {
           className='absolute right-3 top-10'
         />
       </div>
-      <div className='max-w-[1190px] m-auto text-white flex flex-col justify-center items-center mt-16'>
+      <div className='max-w-[1190px] m-auto text-white flex flex-col justify-center items-center my-16'>
         <MotionImage
           src={mavraPizza}
           alt='mavra pizza'
@@ -112,8 +137,8 @@ const Header = () => {
           </a>
         </motion.div>
       </div>
-    </motion.header>
+    </motion.section>
   )
 }
 
-export default Header
+export default BigHeader
